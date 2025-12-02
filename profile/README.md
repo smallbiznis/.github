@@ -103,20 +103,6 @@ https://docs.smallbiznis.io/billing/invoices
 
 ---
 
-## 📦 Repositories in This Organization
-
-| Repository | Description |
-|-----------|-------------|
-| **billing-service** | Core subscription + balance engine |
-| **billing-usage** | Usage metering consumer + aggregator |
-| **invoice-service** | Invoice generator + billing cycle management |
-| **billing-proto** | Protobuf schemas for all billing services |
-| **billing-frontend** | Next.js UI for billing dashboard & tenant billing portal |
-| **sdk-go / sdk-js** | Developer SDKs |
-| **examples** | Integration examples (SaaS, multi-tenant, workflows) |
-
----
-
 ## 🧭 Roadmap
 
 ### **Near Term**
