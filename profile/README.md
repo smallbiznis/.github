@@ -1,64 +1,141 @@
-# 🚀 SmallBiznis Platform
+# ⭐ SmallBiznis Billing API
+### *Modern, Modular, and Fully Self-Hosted Billing Engine for SaaS & Platforms*
 
-SmallBiznis is a modern, modular platform designed to help businesses build and scale retail, commerce, and loyalty experiences.  
-Our architecture is fully API-driven, multi-tenant, and production-ready for SaaS, POS, online stores, and enterprise integrations.
-
-We provide a complete suite of services covering:
-
-- **Identity & Tenant Management**
-- **Billing & Subscription**
-- **Invoices & Usage-based Charging**
-- **Product Catalog & Inventory**
-- **Unified Checkout (Online & POS)**
-- **Loyalty Points**
-- **Vouchers & Promotion Tools**
-- **Order Fulfillment**
-- **Campaigns, Notifications, Analytics, and more**
-
-This organization hosts all open-source packages, SDKs, documentation, and reference implementations.
+SmallBiznis Billing API is a developer-first, event-driven billing engine designed for **multi-tenant SaaS**, **platform businesses**, and **usage-based applications**.  
+Deliver subscription, metering, invoicing, and credit-based trials — all with clean APIs and production-ready infrastructure.
 
 ---
 
-## 🧩 Platform Architecture
+## 💡 What We Solve
 
-SmallBiznis is built using a **modular microservice** approach organized into clear domains:
+Modern platforms need flexible billing:
 
-- **Identity** — tenant, domain, and organization provisioning  
-- **Billing** — subscription, balances, credits, trial management  
-- **Catalog** — products, variants, options, inventory  
-- **Commerce** — checkout, transaction, payments  
-- **Loyalty** — points, movements, expiration  
-- **Voucher** — discount codes, validation, redemption  
-- **Operations** — fulfillment and delivery pipelines  
-- **Growth** — campaign automation and notifications  
-- **Intelligence** — audit logs, analytics, dashboards
+- **Subscriptions for tenants or organizations**
+- **Usage-based metering (per seat, per execution, per API call, etc.)**
+- **Automated invoicing**
+- **Trial & credit balance management**
+- **Plan upgrades, downgrade, proration, and cancellation**
+- **Event-driven internal billing**
+- **Multi-tenant isolation**
 
-All services communicate using **gRPC**, with REST exposure via **gRPC-Gateway**.
+SmallBiznis Billing API provides a **complete foundation** so you never have to build a billing system from scratch again.
 
 ---
 
-## 🛠 Tech Stack
+## 🧩 Core Capabilities
 
-- **Golang** — microservices  
-- **gRPC + Protocol Buffers** — primary interface definition  
-- **PostgreSQL / ClickHouse** — OLTP + analytical workloads  
-- **Temporal / Asynq** — workflow & background job orchestration  
-- **Nomad + Consul + Vault** — production orchestration  
-- **OpenAPI v3** — HTTP API documentation  
-- **Docusaurus + Redocly** — developer documentation  
-- **Nx + Next.js** — frontend applications  
-- **MinIO / S3** — asset + media storage  
+### **1. Subscription Management**
+- Flat-rate, per-seat, and usage plans  
+- Trialing, active, past_due, canceled  
+- Scheduled cancellation & renewal windows  
+- Multi-tenant subscription isolation  
+- Plan upgrade/downgrade workflows  
+
+### **2. Usage-Based Billing**
+- Metered billing using internal usage events  
+- Workflow executions  
+- Rule engine evaluations  
+- Notification sends  
+- Voucher & loyalty operations  
+- Custom usage events  
+- Accurate usage aggregation per tenant & billing cycle  
+
+### **3. Trials & Free Credit System (GCP-Style)**
+- Time-boxed, credit-based trials  
+- Credits deducted automatically from plan/usage  
+- Trial exhaustion detection  
+- Smooth transition to pay-as-you-go or paid plan  
+
+### **4. Invoicing Engine**
+- Automated billing cycles  
+- Combine subscription + usage charges  
+- Line items with detailed metadata  
+- Draft → Open → Paid → Void  
+- Proration support  
+- Webhook events for invoice lifecycle  
+
+### **5. Balance & Quotas**
+- Credit balance (like GCP free tier)  
+- Quota enforcement per module or feature  
+- Optional throttling integrations  
+
+### **6. Developer-First API**
+- gRPC  
+- REST via gRPC-Gateway  
+- OpenAPI 3.1  
+- Strongly typed SDKs (Go, TypeScript, Python)  
+
+---
+
+## 🏗 Platform Architecture
+
+SmallBiznis Billing API is built using modern, scalable components:
+
+- **Go** microservices  
+- **PostgreSQL + SQLC** for transactional data  
+- **ClickHouse** for usage analytics  
+- **NATS / Kafka** for event ingestion  
+- **Temporal** for billing cycles & retries  
+- **Nomad + Consul + Vault** for production orchestration  
+- **OpenTelemetry** for metrics & tracing  
+
+Designed for:
+- High-throughput metering  
+- Multi-tenant scalability  
+- Isolated data boundaries  
+- Event-driven billing workloads  
 
 ---
 
 ## 📚 Documentation
 
-👉 **API Reference**  
-https://docs.smallbiznis.io/api
+### 🔗 API Reference  
+https://docs.smallbiznis.io/billing/api
 
-👉 **Developer Guides & Concepts**  
-https://docs.smallbiznis.io/docs
+### 🔗 Subscription Concepts  
+https://docs.smallbiznis.io/billing/subscriptions
 
-👉 **OpenAPI Specifications**  
-All OpenAPI files are stored in:
+### 🔗 Usage Metering Guide  
+https://docs.smallbiznis.io/billing/usage
 
+### 🔗 Invoice Specification  
+https://docs.smallbiznis.io/billing/invoices
+
+---
+
+## 📦 Repositories in This Organization
+
+| Repository | Description |
+|-----------|-------------|
+| **billing-service** | Core subscription + balance engine |
+| **billing-usage** | Usage metering consumer + aggregator |
+| **invoice-service** | Invoice generator + billing cycle management |
+| **billing-proto** | Protobuf schemas for all billing services |
+| **billing-frontend** | Next.js UI for billing dashboard & tenant billing portal |
+| **sdk-go / sdk-js** | Developer SDKs |
+| **examples** | Integration examples (SaaS, multi-tenant, workflows) |
+
+---
+
+## 🧭 Roadmap
+
+### **Near Term**
+- Complete invoice engine  
+- Add proration logic  
+- Add Stripe/Midtrans payment connectors  
+- Add webhook signing + callback system  
+- Add analytics dashboards  
+
+---
+
+## 🚀 Our Vision
+
+To make **world-class, self-hosted billing infrastructure** accessible to every SaaS, startup, and platform — without vendor lock-in.
+
+Whether you're building:
+- a SaaS,  
+- a marketplace,  
+- a workflow automation platform,  
+- or a modular multi-tenant system…
+
+SmallBiznis Billing API gives you a **scalable, extensible billing core** you can trust.
